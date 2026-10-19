@@ -18,6 +18,26 @@ Open [http://localhost:3000](http://localhost:3000) with your browser to see the
 
 You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
 
+## MongoDB Setup
+
+Copy `.env.example` to `.env.local`, then set `MONGODB_URI` to a local MongoDB instance or MongoDB Atlas connection string. Set `AUTH_SECRET` to a random value of at least 32 characters. For example, generate one with:
+
+```bash
+node -e "console.log(require('crypto').randomBytes(32).toString('hex'))"
+```
+
+`MONGODB_DB` is optional and defaults to `folio`. Restart the dev server after changing environment variables. Create an account in the app to save resumes to your MongoDB database. Passwords are hashed, sessions use HTTP-only cookies, and resume API operations are scoped to the signed-in account.
+
+## Project Structure
+
+- `app/page.tsx` is the route entry point.
+- `app/components/resume-builder.tsx` contains the interactive editor and live preview.
+- `app/components/auth-form.tsx` contains the sign-in and registration UI.
+- `app/api/auth/` contains registration, login, session, and logout endpoints.
+- `app/api/resumes/` contains account-scoped resume CRUD endpoints.
+- `lib/` contains MongoDB connection, session, and shared resume validation code.
+- `app/globals.css` contains global, editor, login, responsive, and print styles.
+
 This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
 
 ## Learn More
