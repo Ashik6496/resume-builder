@@ -451,7 +451,7 @@ button {
 
 .template-mini-executive {
   justify-content: end;
-  background: #31473a;
+  background: var(--resume-accent);
 }
 
 .template-mini-executive i {
@@ -783,7 +783,7 @@ button {
 }
 
 .template-executive {
-  background: linear-gradient(#304638 0 225px, var(--paper) 225px);
+  background: linear-gradient(var(--resume-accent) 0 225px, var(--paper) 225px);
 }
 
 .template-executive .resume-header {
